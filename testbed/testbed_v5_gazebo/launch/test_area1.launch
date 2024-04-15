@@ -1,0 +1,21 @@
+<launch>
+    <!-- Convert XACRO to URDF -->
+    <param name="robot_description" command="$(find xacro)/xacro $(find testbed_v5_description)/urdf/testbed_v5.xacro"/>
+
+    <!-- Launch Gazebo with the custom world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find testbed_v5_gazebo)/worlds/test_area1.world"/>
+        <!-- Optionally set Gazebo physics properties -->
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
+
+    <!-- Spawn the robot in Gazebo -->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+          args="-param robot_description -urdf -model testbed_v5"
+          output="screen" />
+</launch>
+
