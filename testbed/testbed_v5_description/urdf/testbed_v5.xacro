@@ -1,0 +1,278 @@
+<?xml version="1.0" ?>
+<robot name="testbed_v5" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find testbed_v5_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find testbed_v5_description)/urdf/testbed_v5.trans" />
+<xacro:include filename="$(find testbed_v5_description)/urdf/testbed_v5.gazebo" />
+<xacro:include filename="$(find testbed_v5_description)/urdf/testbed_v5_plugins.gazebo" />
+
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.009417108194433796 0.007391324547363638 0.1456606164886188" rpy="0 0 0"/>
+    <mass value="5.234348580602515"/>
+    
+    <inertia ixx="0.067679" iyy="0.06101" izz="0.104014" ixy="-0.000698" iyz="5.6e-05" ixz="0.003912"/>
+    
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin xyz="0.002500497082887458 -1.5695143071488282e-07 1.4622628566329787e-07" rpy="0 0 0"/>
+    <mass value="0.02683089777381168"/>
+    <inertia ixx="5.2e-05" iyy="2e-06" izz="5e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.046628 -0.00577 -0.243503" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.046628 -0.00577 -0.243503" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="2.6024096270072135e-07 -1.5695143085713015e-07 0.012363569052544154" rpy="0 0 0"/>
+    <mass value="0.13119534142939002"/>
+    <inertia ixx="4.6e-05" iyy="4.6e-05" izz="8e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.001943 -0.00577 -0.264503" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.001943 -0.00577 -0.264503" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="top_stand_1">
+  <inertial>
+    <origin xyz="0.03967798450114855 -1.3551081426969001e-05 0.023834533396327046" rpy="0 0 0"/>
+    <mass value="0.2768438331116585"/>
+    <inertia ixx="0.000302" iyy="0.00044" izz="0.000645" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.037742 -0.005793 -0.222503" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/top_stand_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.037742 -0.005793 -0.222503" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/top_stand_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="4.820423154623318e-07 0.014930421756785828 1.462262926854585e-07" rpy="0 0 0"/>
+    <mass value="0.14690578122037995"/>
+    <inertia ixx="9.6e-05" iyy="0.000183" izz="9.6e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.00203 -0.178793 -0.050003" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.00203 -0.178793 -0.050003" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="4.82042336067811e-07 -0.014929739834248806 1.4622628940336169e-07" rpy="0 0 0"/>
+    <mass value="0.14690578122037973"/>
+    <inertia ixx="9.6e-05" iyy="0.000183" izz="9.6e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.00203 0.167207 -0.050003" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.00203 0.167207 -0.050003" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_caster_2">
+  <inertial>
+    <origin xyz="2.3399034404514296e-08 3.409612755883584e-07 -0.038760384632581794" rpy="0 0 0"/>
+    <mass value="0.8239907441912069"/>
+    <inertia ixx="0.000498" iyy="0.000498" izz="0.000159" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.127258 0.121257 -0.084003" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/front_caster_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.127258 0.121257 -0.084003" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/front_caster_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_caster_1">
+  <inertial>
+    <origin xyz="2.3399032877957637e-08 3.409612712723664e-07 -0.038760384632579574" rpy="0 0 0"/>
+    <mass value="0.8239907441912069"/>
+    <inertia ixx="0.000498" iyy="0.000498" izz="0.000159" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.127258 -0.132843 -0.084003" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/front_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.127258 -0.132843 -0.084003" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/front_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_caster_1">
+  <inertial>
+    <origin xyz="2.3399038776017456e-08 3.4096127132787757e-07 -0.038760384632579255" rpy="0 0 0"/>
+    <mass value="0.8239907441912067"/>
+    <inertia ixx="0.000498" iyy="0.000498" izz="0.000159" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.122742 -0.132843 -0.084003" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/back_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.122742 -0.132843 -0.084003" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/back_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_caster_2">
+  <inertial>
+    <origin xyz="2.3399040469107568e-08 3.4096127535243603e-07 -0.0387603846325812" rpy="0 0 0"/>
+    <mass value="0.8239907441912067"/>
+    <inertia ixx="0.000498" iyy="0.000498" izz="0.000159" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.122742 0.121257 -0.084003" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/back_caster_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.122742 0.121257 -0.084003" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://testbed_v5_description/meshes/back_caster_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid 46" type="fixed">
+  <origin xyz="0.08437 -2.3e-05 0.021" rpy="0 0 0"/>
+  <parent link="top_stand_1"/>
+  <child link="camera_1"/>
+</joint>
+
+<joint name="Rigid 47" type="fixed">
+  <origin xyz="0.039685 -2.3e-05 0.042" rpy="0 0 0"/>
+  <parent link="top_stand_1"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="Rigid 48" type="fixed">
+  <origin xyz="-0.037742 0.005793 0.222503" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="top_stand_1"/>
+</joint>
+
+<joint name="left_wheel_joint" type="continuous">
+  <origin xyz="0.00203 0.178793 0.050003" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="right_wheel_joint" type="continuous">
+  <origin xyz="0.00203 -0.167207 0.050003" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid 53" type="fixed">
+  <origin xyz="0.127258 -0.121257 0.084003" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="front_caster_2"/>
+</joint>
+
+<joint name="Rigid 54" type="fixed">
+  <origin xyz="0.127258 0.132843 0.084003" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="front_caster_1"/>
+</joint>
+
+<joint name="Rigid 55" type="fixed">
+  <origin xyz="-0.122742 0.132843 0.084003" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="back_caster_1"/>
+</joint>
+
+<joint name="Rigid 56" type="fixed">
+  <origin xyz="-0.122742 -0.121257 0.084003" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="back_caster_2"/>
+</joint>
+
+</robot>
